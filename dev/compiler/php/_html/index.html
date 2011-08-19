@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb" dir="ltr" >
+	<head>
+        <title>K2framwork Compiler</title>
+        <script type="text/javascript">
+        function selectElementText(el, win) {
+            win = win || window;
+            var doc = win.document, sel, range;
+            if (win.getSelection && doc.createRange) {
+                sel = win.getSelection();
+                range = doc.createRange();
+                range.selectNodeContents(el);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            } else if (doc.body.createTextRange) {
+                range = doc.body.createTextRange();
+                range.moveToElementText(el);
+                range.select();
+            }
+        }
+        </script>
+        <style type="text/css">
+        html,body
+        {
+            margin:0px;
+            padding:0px;
+            width:100%;
+            height:100%;
+        }
+        body
+        {
+            font-family: 'Lucida Sans Unicode', Tahoma, Arial, sans-serif;
+            color:#000;
+            font-size:14px;
+            background-color:#535148;
+        }
+        h3
+        {
+            color:#990000;
+            font-size:24px;
+        }
+        label
+        {
+            cursor:pointer !important;
+            background:#CCFFCC;
+            border:1px solid #999;
+            border-radius: 4px 0px 0px 4px;
+            font-size:13px;
+            color:#666;
+            padding:3px 5px 0px 10px;
+        }
+        label input
+        {
+            margin:0px;
+            padding:0px;
+        }
+        label:hover
+        {
+            background:#CCFF99;
+            color:#000;
+        }
+        #k2-wrapper
+        {
+            background-color:#fff;
+            width:800px;
+            padding:20px 10px 20px 10px;
+            margin:0px auto;
+            margin-bottom:50px;
+            border:1px solid #fff;
+            border-radius: 0px 0px 4px 4px;
+        }
+        .color-dark
+        {
+            color:#333;
+        }
+        .clr
+        {
+            clear:both;
+        }
+        .actions
+        {
+            float:right;
+        }
+        .actions a
+        {
+            cursor:pointer !important;
+            background-image:url("_html/ico-compile.png");
+            background-repeat:no-repeat;
+            background-position:0px 2px;
+            padding-left:20px;
+            color:#666;
+            text-decoration:none;
+        }
+        .actions a:hover
+        {
+            color:#000;
+        }
+        .core-mod
+        {
+            background:#99FF66 !important;
+            color:#000 !important;
+        }
+        .core-mod:hover
+        {
+            background:#99FF66 !important;
+            color:#000 !important;
+        }
+        .module-item,
+        .compiled
+        {
+            background-color:#FFFFCC;
+            margin:5px 0px 5px 0px;
+            padding:5px;
+            border:1px solid #999;
+            border-radius: 0px 0px 4px 4px;
+        }
+        .module-item .title,
+        .compiled .title
+        {
+            padding:5px 0px 5px 20px;
+            border-bottom:1px solid #ccc;
+            background-image:url("_html/ico-module.png");
+            background-repeat:no-repeat;
+            background-position:0px 7px;
+        }
+        .compiled .title
+        {
+            background-image:url("_html/ico-option.png");
+        }
+        .compiled .opt-name
+        {
+            font-weight:bold;
+        }
+        .compiled .opt-name span
+        {
+            font-weight:normal;
+            font-size:12px;
+        }
+        .compiled strong
+        {
+            background-image:url("_html/ico-step.png");
+            background-repeat:no-repeat;
+            padding-left:20px;
+        }
+        .module-name
+        {
+            float:left;
+            font-weight:bold;
+        }
+        .module-desc,
+        .compiled p
+        {
+            font-size:13px;
+        }
+        .opt
+        {
+            float:right;
+        }
+        .author
+        {
+            font-size:11px;
+            color:#666;
+            background-image:url("_html/ico-author.png");
+            background-repeat:no-repeat;
+            background-position:0px 6px;
+            padding:5px 0px 5px 20px;
+        }
+        #k2-modules
+        {
+            background:#EFEFEF;
+            padding:5px;
+            border:1px solid #666;
+            border-radius: 4px 4px 4px 4px;
+        }
+        pre
+        {
+            background:#fff;
+            border:1px solid #ccc;
+            border-left:5px solid #CC66FF;
+            overflow:scroll;
+            height:100px;
+            font-family:monospace, Courier, sans-serif;
+            font-size:13px;
+            padding:5px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="k2-wrapper">
+            <h3>K2<span class="color-dark">framework Compiler</span></h3>
+            {welcome}
+            {error}
+            {modules}
+            {code}
+        </div>
+    </body>
+</html>

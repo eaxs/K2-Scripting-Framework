@@ -1,0 +1,126 @@
+********************************************************************************
+* K2 FRAMEWORK COMPILER AND MODULES README
+********************************************************************************
+
+* TABLE OF CONTENTS
+* A) About
+* B) Compiler Setup
+* * 1. Requirements
+* * 2. Installation
+*
+* C) Module Tutorial
+* * 1. Foreword
+* * 2. Naming conventions
+* * 3. Architecture
+
+
+* A) ABOUT
+
+This document will explain how to setup the K2 framework compiler. 
+It also contains brief instructions on how to create your own modules.
+
+
+
+* B) COMPILER SETUP
+
+There is a compiler written in PHP 5 available here in the repo.
+This tool allows you to create your own K2 framework script with the selected
+modules. It also provides easy to follow install instructions after the compilation.
+
+
+1. Requirements
+    On your PC, you need to have Apache 2.x compiled with PHP 5 running. Alternatively
+    you can use the K2 compiler on any suitable webspace/website.
+
+    If you don't know how to install/configure Apache and PHP, I recommend you
+    install any of the pre-configured distributions such as:
+    http://www.wampserver.com/
+
+
+2. Installation
+    First, download the entire repo here from github:
+    https://github.com/eaxs/K2-Scripting-Framework
+
+    Copy the _contents_ of the folder "php", located in: "<package>/dev/compiler" anywhere 
+    in your apache document root directory.
+
+    If you need help figuring this out: it's defined as "DocumentRoot" in your 
+    Apache httpd.conf file.
+
+    Next, copy the _folder_ "modules", located in: "<package>/dev/" to the same
+    directory wher you copied the other files.
+
+    When you are done, you should have the following structure in the directory
+    where you put the files:
+
+    * /_html
+    * /_lib
+    * /_tpl
+    * /modules
+    * /compile.php
+    * /compiler.ini
+    * /index.php
+    * /welcome.php
+
+    Now open your web browser and type the approriate URL, leading to where you
+    put the files. For example:
+    http://localhost/compiler OR http://mywebsite.com/compiler
+
+    You should now see the compiler interface. If you see any errors, please double-check
+    the steps above. If everything looks alright, the compiler will guide you through the rest.
+
+
+* C) MODULE TUTORIAL
+
+1. Foreword
+    Note: This is not a *full* tutorial! This section will give you bried instructions
+    on how things work to get your started. For reference, I suggest you look at the
+    existing modules.
+
+    Note that EVERYTHING you write in and for this module is case-sensitive. This 
+    is very important to remember at all times!
+    Case-sensitive means that "String" is not equal "string".
+
+2. Naming Conventions
+    Before you start, I *highly recommend* that you adhere to the following naming conventions:
+    * The name of the module should be short and the first letter should be upper-case.
+
+    * Also, the module name must be a single string.
+
+    * Module methods should not contain underscores (_). They should be camelCase (note: *c*amel*C*ase).
+
+    * Variables should be declared with a prefix. Preferably using the module and method name:
+      <module>_<method>_<varname>
+
+    * All variables should be written in lower-case and may contain underscores.
+
+    * Labels inside a method must follow this pattern: <Module>::<method>__<labelname>{
+
+    * The "__exec{" label name inside methods is reserved. Do not use it!
+
+    * If you want to call the K2 script from inside a method, use #self# instead of "K2"!
+
+3. Architecture
+    In Savage 2 scripts, you call a module method like this:
+    #$e# K2 <module>.<method> <options>
+    
+    "#$e# K2" simply means "ExecScript K2", or: "Run the script called K2".
+    "<module>.<method>" defined the module and the method you want to call. Note the "."
+    which is used as a delimeter for the method.
+    
+    
+    The compiler reads all the available modules from the "modules" directory.
+    So this is where you have to start. Create a new folder in that directory which
+    should be the name of your module.
+    
+    In this new folder, you need 2 more folders:
+    /methods -  Contains all your method scripts
+    /vars - Contains all your private variables etc.
+    
+    We also need a "module.ini" file which is needed for the compiler.
+    You should copy a module.ini from one of the existing modules as a template
+    and then modify it accordingly. I recommend using the K2 module.ini.
+    
+    In the "methods" folder you have to create .cfg files which contain the 
+    code of your methods. Each file must be named after a method, as defined in 
+    the module.ini

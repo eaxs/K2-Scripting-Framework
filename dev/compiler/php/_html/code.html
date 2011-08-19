@@ -1,0 +1,32 @@
+<div id="k2-modules">
+    <div class="actions"><a href="index.php">Start Over</a></div>
+    <div class="clr"></div>
+        <div class="compiled">
+            <div class="title"><div class="opt-name">Install Option 1 <span>(Best for upgrades or K2SE users)</span></div></div>
+            <p><strong>Step 1:</strong> If you are using
+            <a href="http://forums.savage2.com/showthread.php?p=141835" target="_blank">Stanz' K2 Script Editor</a>,
+            load your map with the Script Editor and create a new trigger called "K2". Then copy and paste
+            the code below into the "K2" trigger. If you don't have the Script editor, you can do the same using the Map Editor instead.
+            If you are upgrading your project, just replace the code in the existing "K2" trigger.</p>
+            <pre onclick="selectElementText(this);">{code1}</pre>
+            <p><strong>Step 2:</strong> If you are updating your project you can skip this step.
+            Switch to the trigger called "maploaded" and add the following code:</p>
+            <pre onclick="selectElementText(this);">// Initialize the K2 framework
+Set __K2_INI 0;
+ExecScript K2;</pre>
+              <p><strong>Step 3:</strong> The script is now installed and ready to use. Happy coding!</p>
+        </div>
+        <div class="clr"></div>
+        <div class="compiled">
+            <div class="title"><div class="opt-name">Install Option 2 <span>(Best for new projects or non-K2SE users)</span></div></div>
+            <p><strong>Step 1:</strong> Open your map with a file archiver (such as Winzip, 7zip etc.) and extract the file called "triggerlist".
+            Open this file with a text editor and replace the entire content of the file with the code below.</p>
+            <pre onclick="selectElementText(this);">{code2}</pre>
+            <p><strong>Step 2:</strong> Save the file and put it back into the map archive (overwrite the existing file). Please note that by
+            doing this, you are deleting any existing script code in this map - unless it is stored in separate cfg files.</p>
+            <p><strong>Step 3:</strong> The script is now installed and ready to use. Happy coding!</p>
+        </div>
+        <div class="clr"></div>
+    <div class="actions"><a href="index.php">Start Over</a></div>
+    <div class="clr"></div>
+</div>
