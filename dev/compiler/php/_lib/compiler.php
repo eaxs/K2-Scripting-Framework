@@ -184,6 +184,25 @@ class K2compiler extends K2parser
     {
         // Avoid compiling twice
         if(array_key_exists($module->name, $this->modules)) return true;
+
+        // Check dependencies
+        foreach($module->dependencies AS $m)
+        {
+            if(!in_array($m, $this->module_list)) {
+                $this->logError("Unable to satisfy dependency of {$module->name}: {$m}");
+                continue;
+            }
+            else {
+                $dep_mod = new K2module($m);
+                if($dep_mod) {
+                    $this->module($dep_mod);
+                }
+                else {
+                    $this->logError("Failed to load dependency of {$module->name}: {$m}");
+                }
+            }
+        }
+
         $this->modules[$module->name] = $module;
 
         $is_k2 = ($module->name == 'K2') ? true : false;
