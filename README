@@ -48,7 +48,7 @@ modules. It also provides easy to follow install instructions after the compilat
     Apache httpd.conf file.
 
     Next, copy the _folder_ "modules", located in: "<package>/dev/" to the same
-    directory wher you copied the other files.
+    directory where you copied the other files.
 
     When you are done, you should have the following structure in the directory
     where you put the files:
@@ -62,7 +62,7 @@ modules. It also provides easy to follow install instructions after the compilat
     * /index.php
     * /welcome.php
 
-    Now open your web browser and type the approriate URL, leading to where you
+    Now open your web browser and type the appropriate URL, leading to where you
     put the files. For example:
     http://localhost/compiler OR http://mywebsite.com/compiler
 
@@ -73,7 +73,7 @@ modules. It also provides easy to follow install instructions after the compilat
 * C) MODULE TUTORIAL
 
 1. Foreword
-    Note: This is not a *full* tutorial! This section will give you bried instructions
+    Note: This is not a *full* tutorial! This section will give you brief instructions
     on how things work to get your started. For reference, I suggest you look at the
     existing modules.
 
@@ -105,7 +105,7 @@ modules. It also provides easy to follow install instructions after the compilat
     #$e# K2 <module>.<method> <options>
     
     "#$e# K2" simply means "ExecScript K2", or: "Run the script called K2".
-    "<module>.<method>" defined the module and the method you want to call. Note the "."
+    "<module>.<method>" is the module and the method you want to call. Note the "."
     which is used as a delimeter for the method.
     
     
@@ -114,10 +114,10 @@ modules. It also provides easy to follow install instructions after the compilat
     should be the name of your module.
     
     In this new folder, you need 2 more folders:
-    /methods -  Contains all your method scripts
-    /vars - Contains all your private variables etc.
+    /methods - Contains all your method scripts
+    /vars    - Contains all your private variables etc.
     
-    We also need a "module.ini" file which is needed for the compiler.
+    You also need a "module.ini" file which is needed for the compiler.
     You should copy a module.ini from one of the existing modules as a template
     and then modify it accordingly. I recommend using the K2 module.ini.
     
