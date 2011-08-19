@@ -1,32 +1,33 @@
 ********************************************************************************
-* K2 FRAMEWORK COMPILER AND MODULES README
+* K2 SCRIPTING FRAMEWORK COMPILER AND MODULES README
 ********************************************************************************
 
-* TABLE OF CONTENTS
+TABLE OF CONTENTS
+
 * A) About
+
 * B) Compiler Setup
-* * 1. Requirements
-* * 2. Installation
-*
+  1. Requirements
+  2. Installation
+
 * C) Module Tutorial
-* * 1. Foreword
-* * 2. Naming conventions
-* * 3. Architecture
+  1. Foreword
+  2. Naming conventions
+  3. Architecture
 
 
-* A) ABOUT
+A) ABOUT
 
 This document will explain how to setup the K2 framework compiler. 
 It also contains brief instructions on how to create your own modules.
 
 
 
-* B) COMPILER SETUP
+B) COMPILER SETUP
 
 There is a compiler written in PHP 5 available here in the repo.
 This tool allows you to create your own K2 framework script with the selected
 modules. It also provides easy to follow install instructions after the compilation.
-
 
 1. Requirements
     On your PC, you need to have Apache 2.x compiled with PHP 5 running. Alternatively
@@ -70,7 +71,7 @@ modules. It also provides easy to follow install instructions after the compilat
     the steps above. If everything looks alright, the compiler will guide you through the rest.
 
 
-* C) MODULE TUTORIAL
+C) MODULE TUTORIAL
 
 1. Foreword
     Note: This is not a *full* tutorial! This section will give you brief instructions
