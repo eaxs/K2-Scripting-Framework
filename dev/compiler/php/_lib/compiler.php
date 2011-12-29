@@ -399,11 +399,21 @@ class K2compiler extends K2parser
         $tcode = '';
 
         // Locking code
-        $lcode = 'if [__'.$mod_l.'_'.$method->name.'_lock == 1] "'
-               // . '#<# \"^r'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\";'
-               //. (($method->name == 'log') ? '' : '#$e# #self# \"'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\" -w 1; ')
-               //. '#@# \"'.$mod_u.'::__exec_skip_'.$method->name.'{\"";';
-               . '#@# \"K2::__exec_skip_'.$mod_u.'.'.$method->name.'{\"";';
+        if($is_k2) {
+            $lcode = 'if [__'.$mod_l.'_'.$method->name.'_lock == 1] "'
+                   // . '#<# \"^r'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\";'
+                   //. (($method->name == 'log') ? '' : '#$e# #self# \"'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\" -w 1; ')
+                   //. '#@# \"'.$mod_u.'::__exec_skip_'.$method->name.'{\"";';
+                   . '#@# \"K2::__exec_skip_'.$method->name.'{\"";';
+        }
+        else {
+            $lcode = 'if [__'.$mod_l.'_'.$method->name.'_lock == 1] "'
+                   // . '#<# \"^r'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\";'
+                   //. (($method->name == 'log') ? '' : '#$e# #self# \"'.$mod_u.'::'.$method->name.': Concurrent Call. Method is locked\" -w 1; ')
+                   //. '#@# \"'.$mod_u.'::__exec_skip_'.$method->name.'{\"";';
+                   . '#@# \"K2::__exec_skip_'.$mod_u.'.'.$method->name.'{\"";';
+        }
+
 
         $lcode .= "\r\n #$# __".$mod_l."_".$method->name."_lock 1";
 
