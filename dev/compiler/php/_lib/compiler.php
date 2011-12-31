@@ -269,6 +269,9 @@ class K2compiler extends K2parser
 
         // trigger list
         $code = str_replace("\r\n", '&#13;&#10;', $this->output_k2);
+        //$code = str_replace('"', '&quot;', $code);
+        $code = htmlentities($code);
+        //$code = str_replace('<', '&quot;', $code);
         $tpl = implode("\r\n", $this->tpl_data['triggerlist']);
         $tpl = implode("\r\n", $this->tpl_data['triggerlist']);
         $this->output_trigger = str_replace('{code}', $code, $tpl);
