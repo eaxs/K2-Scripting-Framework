@@ -366,7 +366,7 @@ class K2compiler extends K2parser
                 foreach($mkeys AS $method)
                 {
                     // Unlock method code
-                    $code .= 'if #StringLength(|#GetScriptParam('.$mod_u.'.'.$method.')|#)# "#$# __'.$mod_l.'_'.$method.'_lock 0";';
+                    $code .= 'if #StringLength(|#GetScriptParam('.$mod_u.'.'.$method.')|#)# if [__'.$mod_l.'_'.$method.'_lock == 1] "#$# __'.$mod_l.'_'.$method.'_lock 0";';
                     $code .= "\r\n";
                 }
             }
@@ -601,6 +601,8 @@ class K2compiler extends K2parser
                     $skip = '@K2::__exec_skip_'.$module->name.'.'.$method.'{';
                     $this->script_hook['reg_mod'][] = $skip;
                 }
+                $skipmod = '@K2::__exec_skip_'.$module->name.'{';
+                $this->script_hook['reg_mod'][] = $skipmod;
             }
         }
     }
